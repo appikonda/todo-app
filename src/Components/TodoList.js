@@ -4,11 +4,9 @@ export default class TodoList extends Component{
 
     render(){
         return(
-            <div>
-              
-                <p>TodoList</p>
-                
-            </div>
+            <div style={{marginTop: 80}}>
+            <p>Todos</p>
+        </div>
         )
 
     }

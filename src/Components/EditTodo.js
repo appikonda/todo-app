@@ -4,9 +4,9 @@ export default class EditTodo extends Component{
 
     render(){
         return(
-            <div>
-
-            </div>
+            <div style={{marginTop: 80}}>
+            <p>Edit Todo</p>
+        </div>
         );
     }
 }
