@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Row, Col, Form, Button} from 'react-bootstrap'
+import axios from 'axios';
 
 export default class CreateTodo extends Component{
     constructor(props) {
@@ -32,6 +33,7 @@ export default class CreateTodo extends Component{
   
 
      onChangePriority = (event) => {
+         console.log("Update priority")
         this.setState({priority : event.target.value});
       };
 
@@ -43,6 +45,16 @@ export default class CreateTodo extends Component{
         console.log(`Todo Responsible: ${this.state.responsible}`);
         console.log(`Todo Priority: ${this.state.priority}`);
         console.log(`Todo Completed: ${this.state.completed}`);
+
+        const newTodo = {
+            description: this.state.description,
+            responsible: this.state.responsible,
+            priority: this.state.priority,
+            completed: this.state.completed
+        };
+
+        axios.post('http://localhost:4000/todos/add', newTodo)
+            .then(res => console.log(res.data));
 
         this.setState({
             description: '',
